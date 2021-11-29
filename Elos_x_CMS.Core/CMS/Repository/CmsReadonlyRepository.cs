@@ -27,7 +27,7 @@ namespace Elos_x_CMS.Core.CMS.Repository
 
         public virtual T Get(Guid id)
         {
-            var cmsResponse = CallApi($"id eq '{id}'").Result;
+            var cmsResponse = CallApiGet($"id eq '{id}'").Result;
             if(cmsResponse.total == 0)
             {
                 return null;
@@ -40,7 +40,7 @@ namespace Elos_x_CMS.Core.CMS.Repository
 
         public virtual IEnumerable<T> GetAll()
         {
-            var cmsResponse = CallApi().Result;
+            var cmsResponse = CallApiGet().Result;
             return DtoCmsTranslator.Translate(cmsResponse.items);
         }
 
@@ -49,7 +49,7 @@ namespace Elos_x_CMS.Core.CMS.Repository
             Connection.Dispose();
         }
 
-        protected async Task<CmsResponse<U>> CallApi(string filterQuery = null)
+        protected async Task<CmsResponse<U>> CallApiGet(string filterQuery = null)
         {
             var requestUri = $"{Connection.Url}/{SchemaName}";
             if (true)

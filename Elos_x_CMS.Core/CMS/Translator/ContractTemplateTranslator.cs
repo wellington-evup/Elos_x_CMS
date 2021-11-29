@@ -9,12 +9,24 @@ namespace Elos_x_CMS.Core.CMS.Translator
     {
         public ContractTemplateVM Translate(ContractTemplate value)
         {
-            throw new NotImplementedException();
+            return new ContractTemplateVM()
+            {
+                IdElos = value.Id,
+                Description = value.Description,
+                Template = value.Template,
+                Type = (int)value.Type
+            };
         }
 
         public ContractTemplate Translate(ContractTemplateVM value)
         {
-            throw new NotImplementedException();
+            return new ContractTemplate()
+            {
+                Id = value.IdElos,
+                Description = value.Description,
+                Template = value.Template,
+                Type = (Enum.EContractTemplateType)value.Type
+            };
         }
     }
 }

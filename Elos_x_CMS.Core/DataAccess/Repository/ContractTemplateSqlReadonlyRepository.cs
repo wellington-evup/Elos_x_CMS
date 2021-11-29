@@ -7,7 +7,7 @@ namespace Elos_x_CMS.Core.DataAccess.Repository
 {
     public class ContractTemplateSqlReadonlyRepository : SqlReadonlyRepository<ContractTemplate>
     {
-        private readonly string _fields = "Id, Description, Template, Inactive, Type";
+        protected readonly string _fields = "Id, Description, Template, Inactive, Type";
 
         public ContractTemplateSqlReadonlyRepository(IDbConnection connection) : base(connection)
         {
@@ -15,12 +15,12 @@ namespace Elos_x_CMS.Core.DataAccess.Repository
 
         public override ContractTemplate Get(long id)
         {
-            return Connection.QueryFirstOrDefault<ContractTemplate>($"select { _fields } from sch8.ContractTemplate where Id = @id", new { id });
+            return Connection.QueryFirstOrDefault<ContractTemplate>($"select { _fields } from sch7.ContractTemplate where Id = @id", new { id });
         }
 
         public override IEnumerable<ContractTemplate> GetAll()
         {
-            return Connection.Query<ContractTemplate>($"select { _fields } from sch8.ContractTemplate");
+            return Connection.Query<ContractTemplate>($"select { _fields } from sch7.ContractTemplate");
         }
     }
 }

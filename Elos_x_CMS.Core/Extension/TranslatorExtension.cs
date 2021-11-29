@@ -13,5 +13,14 @@ namespace Elos_x_CMS.Core.Extension
                 ret.Add(translator.Translate(item));
             return ret;
         }
+
+        public static IEnumerable<Y> Translate<X, Y>(this ITranslator<X, Y> translator, IEnumerable<X> list)
+        {
+            if (list == null) return null;
+            var ret = new List<Y>();
+            foreach (var item in list)
+                ret.Add(translator.Translate(item));
+            return ret;
+        }
     }
 }

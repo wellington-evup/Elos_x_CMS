@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Builder\" />
+    <Folder Include="CMS\Enum\" />
     <Folder Include="Provider\" />
   </ItemGroup>
 

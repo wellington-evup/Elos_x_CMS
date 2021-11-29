@@ -14,6 +14,7 @@ namespace Elos_x_CMS.Core.CMS.Translator
                 id = value.Id.ToString(),
                 data =
                 {
+                    Id = new CmsField<long>(value.IdElos),
                     description = new Model.CmsField<string>(value.Description),
                     isDomain = new Model.CmsField<bool>(value.IsDomain),
                     isLeaf = new Model.CmsField<bool>(value.IsLeaf),
@@ -27,6 +28,7 @@ namespace Elos_x_CMS.Core.CMS.Translator
             return new OrganizationalStructureVM()
             {
                 Id = System.Guid.Parse(value.id),
+                IdElos = value.data.Id.iv,
                 Description = value.data.description.iv,
                 IsDomain = value.data.isDomain.iv,
                 IsLeaf = value.data.isLeaf.iv,

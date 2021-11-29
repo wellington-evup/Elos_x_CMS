@@ -14,6 +14,7 @@ namespace Elos_x_CMS.Core.CMS.Translator
                 id = value.Id.ToString(),
                 data = new ContractTemplateDTO()
                 {
+                    Id = new CmsField<long>(value.IdElos),
                     Description = new Model.CmsField<string>(value.Description),
                     templateContent = new Model.CmsField<string>(value.Description),
                     type = new Model.CmsField<long?>(value.Type)
@@ -26,6 +27,7 @@ namespace Elos_x_CMS.Core.CMS.Translator
             return new ContractTemplateVM()
             {
                 Id = System.Guid.Parse(value.id),
+                IdElos = value.data.Id.iv,
                 Description = value.data.Description.iv,
                 Template = value.data.templateContent.iv,
                 Type = value.data.type?.iv
